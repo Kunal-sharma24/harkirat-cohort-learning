@@ -1,8 +1,10 @@
-const jwt = require('jsonwebtoken');
 const express = require('express');
-const jwtpassword = "123456";
-
 const app = express();
+const jwt = require('jsonwebtoken');
+const jwtpassword = "123345";
+
+app.use(express.json()); // Built-in middleware to parse JSON
+app.use(express.urlencoded({ extended: true })); // Built-in middleware to parse URL-encoded data
 
 const ALL_USERS = [
     {
@@ -31,7 +33,7 @@ function userexists(username, password) {
             userexists = true;
         }
     }
-    return userexists
+    return userexists;
 }
 
 app.post("/signin", (req, res) => {
