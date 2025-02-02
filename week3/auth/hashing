@@ -1,0 +1,26 @@
+<------hashing----->(1 way)
+1.at first username and password is send to the backend
+2.the backend hashed the password and store it to database
+3.now when user again put password
+4.then it get converted it into hashed and again check == database password
+
+
+<------encrpytion----->(2 way)
+1.backend has a key
+2.it apply the changes in the key and then send it to the database
+3.again when database key goes through backend u get the original key
+
+<------JSON Web Token(JWT)----->(3 way)
+User Logs In:
+1.User provides a username/password.
+    The server verifies the password (by checking the hashed password in the database).
+    If valid, the server creates a JWT with a secret key and sends it to the client.
+    Client Uses JWT:
+    
+2.The client stores the token (e.g., in localStorage, sessionStorage, or an HTTP-only cookie).
+    On future requests, the token is sent in the Authorization header (Bearer <JWT>).
+    Server Verifies JWT:
+    
+3.The server verifies the token's signature using the stored secret key.
+4.If valid, the request is allowed.
+
