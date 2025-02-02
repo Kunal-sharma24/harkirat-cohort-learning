@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function getAnimaldata(){
+        fetch("https://fakestoreapiserver.reactbd.com/smart")
+            .then(function(response){
+            response.json().then(function(data){
+                console.log(data)
+            })
+        })
+    }
+</script>
+
+
+<body>
+    <button onclick="getAnimaldata()">getbutton</button>
+</body>
+</html>
+
+
+<!-- Step-by-Step Explanation:
+fetch("https://fakestoreapiserver.reactbd.com/smart")
+
+This function makes a request to the given API URL.
+fetch() returns a Promise, which resolves to the response object.
+.then(function(response) { ... })
+
+When the request completes successfully, fetch() gives back a response object.
+This object contains the HTTP response but does not contain the actual JSON data yet.
+response.json().then(function(data) { ... })
+
+response.json() is a method that converts the raw response into a JavaScript object.
+Since response.json() also returns a Promise, you need another .then() to handle the actual JSON data.
+console.log(data)
+
+Once the JSON data is available, it is logged to the console. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    async function getjsondata(){
+        const response  = await fetch("https://fakestoreapiserver.reactbd.com/smart")     //this is a promise
+        const data = await response.json()   //from promise->data
+        console.log(data)    //data
+    }
+</script>
+
+
+<body>
+    <button onclick="getjsondata()">Button</button>
+</body>
+</html>
