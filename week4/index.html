@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script>
+    async function interset(){
+        var principal = document.getElementById("principal");
+        var rate = document.getElementById("rate");
+        var time = document.getElementById("time");
+        var interset =await fetch("https://sum-server.100xdevs.com/interest?principal="+principal+"&rate="+rate+"&time="+time);
+        var data = await interset.text();
+        document.getElementById("finalinterset").innerHTML = interset;
+    }
+</script>
+
+
+<body>
+    <input id="principal" type="text" placeholder="principal"><br></br>
+    <input id="rate" type="text" placeholder="rate"><br></br>
+    <input id="time" type="text" placeholder="time"><br></br>
+    <button onclick="interset()">submit</button><br></br>
+    <div id="finalinterset"></div>
+</body>
+</html>

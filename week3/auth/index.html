@@ -8,8 +8,9 @@
 <script>
     async function getjsondata(){
         const response = await fetch("https://fakestoreapiserver.reactbd.com/smart")
-        const data = await response.json()
+        const data = await response.json()  //promise
         document.getElementById("userData").innerHTML = JSON.stringify(data)
+        
     }
 </script>
 
